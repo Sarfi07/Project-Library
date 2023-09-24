@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const myLibrary = [
         {
-            author: "Norman D. Lewis",
             title: "Wordpower Made Easy",
+            author: "Norman D. Lewis",
             totalPages: "600", 
             read: false
         }
@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
             dialog.showModal()
         })
     }
+
+    addBookToLibrary();
 
     // display books in the table
     const tbody = document.getElementById('booksInfoBody');
