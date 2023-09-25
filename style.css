@@ -81,8 +81,12 @@ button.btn {
     margin-right: .5rem;
 }
 
-.btn:hover {
+button:hover {
     background-color: 	#B87333;
     color: white;
+}
+
+button:focus {
+    outline: 4px solid #B87333                  ;
 }
 

@@ -17,30 +17,34 @@
             <button id="dialog">Add Book</button>
         </div>
         <dialog id="newBookDialog">
-            <form action="#" id="newBookForm" method="dialog">
+            <form action="#" id="newBookForm" method="dialog" method="post">
                 <fieldset>
                     <legend>Add a new Book</legend>
                     <div class="authordiv labelSection">
                     <label for="author">Author:</label>
                     </div>
                     <div class="inputSection">
-                        <input type="text" id="author" name="author">
+                        <input type="text" id="author" name="author" required>
                     </div>
                     <div class="titleLabel labelSection">
                         <label for="title">Title:</label>
                     </div>
                     <div class="titleInput inputSection">
-                        <input type="text" id="title" name="title">
+                        <input type="text" id="title" name="title" required>
                     </div>
                     <div class="pages labelSection">
                         <label for="totalPages">Number of Pages:</label>
                     </div>
                     <div class="inputSection">
-                        <input type="text" id="totalPages" name="totalPages">
+                        <input type="number" id="totalPages" name="totalPages" required>
                     </div>
                     <div class="readState">
                         <label for="read">Read:</label>
-                        <input type="checkbox" name="read" id="read">
+                        <select name="read" id="read">
+                            <option selected disabled>Select read or not.</option>
+                            <option value="true">Read</option>
+                            <option value="false">Not read yet.</option>
+                        </select>
                     </div>
                 </fieldset>
                 
@@ -58,6 +62,7 @@
                         <th>Author</th>
                         <th>Number of Pages</th>
                         <th>Read</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody id="booksInfoBody">
