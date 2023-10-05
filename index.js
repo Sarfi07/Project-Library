@@ -8,16 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     ];
 
-    function Book(title, author, totalPages, read) {
+    class Book {
         // the constructor...
-
-        this.title = title;
-        this.author = author;
-        this.totalPages = totalPages;
-        this.read = read;
-        this.changeReadStatus = function(newStatus) {
+        constructor(title, author, totalPages, read) {
+            this.title = title;
+            this.author = author;
+            this.totalPages = totalPages;
+            this.read = read;
+        }
+        
+        changeReadStatus(newStatus) {
             this.read = newStatus;
         }
+
     }
 
     function addBookToLibrary() {
