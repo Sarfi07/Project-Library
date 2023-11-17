@@ -102,8 +102,14 @@ document.addEventListener("DOMContentLoaded", () => {
     function showDialog() {
         const showBtn = document.getElementById('dialogBtn');
         const dialog = document.getElementById('newBookDialog');
+        const author = document.getElementById('author');
+        const title = document.getElementById('title');
+        const totalPages = document.getElementById('totalPages');
 
         showBtn.addEventListener('click', () => {
+            author.texContent = "";
+            title.textContent = "";
+            totalPages.textContent = "";
             dialog.showModal();
         })
 
