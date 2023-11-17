@@ -15,9 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
         this.author = author;
         this.totalPages = totalPages;
         this.read = read;
-        this.changeReadStatus = function(newStatus) {
-            this.read = newStatus;
-        }
+    }
+
+    Book.prototype.changedReadStatus = function(newStatus) {
+        this.read = newStatus;
     }
 
     function addBookToLibrary() {
