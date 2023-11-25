@@ -2,74 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript: Library</title>
+    <title>Library</title>
     <link rel="stylesheet" href="style.css">
     <script src="index.js"></script>
 </head>
 <body>
-    <header id="header">
-        <p>library</p>
-    </header>
-    <main>
-        <div class="addBooksBtn">
-            <button id="dialogBtn">Add Book</button>
-        </div>
-        <dialog id="newBookDialog">
-            <form action="#" id="newBookForm" method="dialog" method="post">
-                <fieldset>
-                    <legend>Add a new Book</legend>
-                    <div class="authordiv labelSection">
-                    <label for="author">Author:</label>
+
+    <div class="container">
+        <div id="headSection" class="testBorder">
+            <!-- TODO: Form to add book -->
+            <button id="addBookBtn" class="btn">Add Book</button>
+
+
+            <dialog id="newBookDialog">
+                <form id="newBookForm">
+                    <fieldset>
+                        <legend>Add a new Book</legend>
+                        <div class="authordiv labelSection">
+                        <label for="author">Author:</label>
+                        <div class="inputSection">
+                            <input type="text" id="author" name="author">
+                        </div>
+                        </div>
+                        <div class="titleLabel labelSection">
+                            <label for="title">Title:</label>
+                            <div class="titleInput inputSection">
+                                <input type="text" id="title" name="title">
+                            </div>
+                        </div>
+                        <div class="descriptionLabel descriptionSection">
+                            <label for="description">Description:</label>
+                            <div class="descriptionInput inputSection">
+                                <input type="text" id="description" name="description">
+                            </div>
+                        </div>
+                        <div class="imageLabel imageSection">
+                            <label for="image">Image:</label>
+                            <div class="imageInput inputSection">
+                                <input type="text" id="image" name="image">
+                            </div>
+                        </div>
+                        <div class="pages labelSection">
+                            <label for="totalPages">Number of Pages:</label>
+                            <div class="inputSection">
+                                <input type="number" id="totalPages" name="totalPages">
+                            </div>
+                        </div>
+                        <div class="readState">
+                            <label for="read">Read:</label>
+                            <select name="read" id="read">
+                                <option selected disabled>Select read or not.</option>
+                                <option value="true">Read</option>
+                                <option value="false">Not read yet.</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                    
+                    <div class="dialogBtns">
+
+                        <button type="submit" class="btn">Confirm</button>
+                        <button id="cancelBtn" formmethod="dialog" type="submit" class="btn">Cancel</button>
                     </div>
-                    <div class="inputSection">
-                        <input type="text" id="author" name="author">
-                    </div>
-                    <div class="titleLabel labelSection">
-                        <label for="title">Title:</label>
-                    </div>
-                    <div class="titleInput inputSection">
-                        <input type="text" id="title" name="title">
-                    </div>
-                    <div class="pages labelSection">
-                        <label for="totalPages">Number of Pages:</label>
-                    </div>
-                    <div class="inputSection">
-                        <input type="number" id="totalPages" name="totalPages">
-                    </div>
-                    <div class="readState">
-                        <label for="read">Read:</label>
-                        <select name="read" id="read">
-                            <option selected disabled>Select read or not.</option>
-                            <option value="true">Read</option>
-                            <option value="false">Not read yet.</option>
-                        </select>
-                    </div>
-                </fieldset>
-                
+                </form>
+            </dialog>
     
-                    <button type="submit" class="btn">Confirm</button>
-                    <button id="cancelBtn" class="btn">Cancel</button>
-            </form>
-        </dialog>
-    
-        <div class="booksTable">
-            <table class="BooksInfo">
-                <thead>
-                    <tr>   
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Number of Pages</th>
-                        <th>Read</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody id="booksInfoBody">
-                    <!-- Books Info goes here using js -->
-                </tbody>
-            </table>
         </div>
-    </main>
+    
+        <div id="booksGrid" class="testBorder">
+            <!-- TODO: Display books in the Library -->
+            
+    </div>
+
 </body>
 </html>
