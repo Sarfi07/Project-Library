@@ -14,12 +14,13 @@ const myLibrary = [
 
 // object constructor
 
-function Book(title, author, totalPages, readStatus, description) {
+function Book(title, author, totalPages, readStatus, description, image) {
     this.title = title;
     this.author = author;
     this.pages = totalPages;
-    this.readStatus = readStatus;
+    this.read = readStatus;
     this.description = description;
+    this.image = image
 }
 
 Book.prototype.toggleReadStatus = function () {
@@ -55,10 +56,84 @@ function addBookToLibrary() {
 
         const newBook = new Book(title, author, pages, readStatus, description, image);
         myLibrary.push(newBook);
+        const index = myLibrary.length - 1;
 
         addDialog.close();
+        console.log(myLibrary[index])
+        displaynewBook(myLibrary[index], index);
 
     })
+}
+
+function displaynewBook(item, index) {
+    const booksGrid = document.getElementById('booksGrid');
+
+    const gridChild = document.createElement('div');
+    const card = document.createElement('div');
+
+    const titleFragment = createCardFragment(item, "Title");
+    const authorFragment = createCardFragment(item, "Author");
+    const descriptionFragment = createCardFragment(item, "Description");
+    const pagesFragment = createCardFragment(item, "Pages");
+
+
+    // now for read and deleteBook fragments
+    // Read
+    const readContainer = document.createElement('div');
+
+    const readLabel = document.createElement('span');
+    readLabel.textContent = "Read:    "
+    readLabel.classList.add('bold');
+
+    const readBtn = document.createElement('button');
+    readBtn.textContent = capitalize(item.read);
+    readBtn.classList.add('btn', 'readBtn');
+
+    readBtn.setAttribute('data-index', index)
+    readBtn.setAttribute('id', `readBtn${index}`)
+
+    readContainer.appendChild(readLabel);
+    readContainer.appendChild(readBtn);
+
+    const readFragment = readContainer;
+
+
+    // deleteBook fragement
+    const deleteBookFragment = document.createElement('button');
+    deleteBookFragment.setAttribute('data-index', index);
+    deleteBookFragment.textContent = "Delete";
+    deleteBookFragment.classList.add('delBookBtn')
+
+
+    // image
+    const imageFragment = document.createElement('div');
+    imageFragment.classList.add('imageContainer')
+
+    const img = document.createElement('img');
+    img.src = item.image;
+    imageFragment.appendChild(img);
+
+
+    card.appendChild(imageFragment);
+    card.appendChild(titleFragment);
+    card.appendChild(descriptionFragment);
+    card.appendChild(authorFragment);
+    card.appendChild(pagesFragment);
+    card.appendChild(readFragment);
+    card.appendChild(deleteBookFragment);
+
+    card.classList.add('card');
+    card.setAttribute('id', `card${index}`);
+    gridChild.classList.add('gridChild');
+
+    gridChild.append(card);
+    booksGrid.append(gridChild);
+
+
+    // rerun read and delete function for new books
+    deleteBook();
+    changeReadStatus();
+
 }
 
 function displayBooks() {
