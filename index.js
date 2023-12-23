@@ -34,9 +34,14 @@ Book.prototype.toggleReadStatus = function () {
 function showForm() {
     const showBtn = document.getElementById('addBookBtn');
     const addDialog = document.getElementById('newBookDialog');
+    const cancelBtn = document.getElementById('cancelBtn');
 
     showBtn.addEventListener('click', () => {
         addDialog.showModal();
+    })
+
+    cancelBtn.addEventListener('click', () => {
+        addDialog.close();
     })
 }
 
@@ -270,6 +275,25 @@ function capitalize(word) {
 }
 
 
+function fixBorder() {
+    const inputs = document.querySelectorAll('input');
+
+    for (const input of inputs) {
+        input.addEventListener('change', () => {
+            if (input.validity.valid) {
+                input.style.border = "2px solid green";
+            } else {
+                input.style.border = "2px solid red"
+            }
+        })
+    }
+
+    const image = document.getElementById('image');
+    if (image.checkValidity()) {
+        image.setCustomValidity("Write a valid http address!")
+    }
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     showForm();
@@ -277,4 +301,5 @@ document.addEventListener('DOMContentLoaded', () => {
     displayBooks();
     changeReadStatus();
     deleteBook();
+    fixBorder()
 })

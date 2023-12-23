@@ -85,11 +85,22 @@ fieldset div {
 .dialogBtns {
     margin-top: 1rem;
 }
-dialog input[type='text'] {
+dialog input[type='text'], input[type='url'], input[type='number']{
     width: 20rem;
     height: 1.25rem;
     font-size: 1.15rem;
 }
 
+label::after {
+    content: "*";
+    color: blue;
+}
 
 
+/* input:valid {
+    border: 2px solid green;
+}
+
+input:invalid {
+    border: 2px solid red;
+} */

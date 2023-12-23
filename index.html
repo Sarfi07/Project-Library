@@ -22,36 +22,36 @@
                         <div class="authordiv labelSection">
                         <label for="author">Author:</label>
                         <div class="inputSection">
-                            <input type="text" id="author" name="author">
+                            <input type="text" id="author" name="author" required>
                         </div>
                         </div>
                         <div class="titleLabel labelSection">
                             <label for="title">Title:</label>
                             <div class="titleInput inputSection">
-                                <input type="text" id="title" name="title">
+                                <input type="text" id="title" name="title" required>
                             </div>
                         </div>
                         <div class="descriptionLabel descriptionSection">
                             <label for="description">Description:</label>
                             <div class="descriptionInput inputSection">
-                                <input type="text" id="description" name="description">
+                                <input type="text" id="description" name="description" required>
                             </div>
                         </div>
                         <div class="imageLabel imageSection">
                             <label for="image">Image:</label>
                             <div class="imageInput inputSection">
-                                <input type="text" id="image" name="image">
+                                <input type="url" id="image" name="image" required pattern="^(https?|ftp):\/\/\S+$">
                             </div>
                         </div>
                         <div class="pages labelSection">
                             <label for="totalPages">Number of Pages:</label>
                             <div class="inputSection">
-                                <input type="number" id="totalPages" name="totalPages">
+                                <input type="number" id="totalPages" name="totalPages" required>
                             </div>
                         </div>
                         <div class="readState">
                             <label for="read">Read:</label>
-                            <select name="read" id="read">
+                            <select name="read" id="read" required>
                                 <option selected disabled>Select read or not.</option>
                                 <option value="true">Read</option>
                                 <option value="false">Not read yet.</option>
